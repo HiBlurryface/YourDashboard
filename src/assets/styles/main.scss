@@ -1,0 +1,16 @@
+@import "_reset.scss";
+@import "_fonts.scss";
+
+body,
+html {
+    background: #f4f7fe;
+    font-family: "DMSans";
+}
+.body {
+    &__wrapper {
+        display: flex;
+    }
+}
+.main {
+    flex: 1 0 auto;
+}
