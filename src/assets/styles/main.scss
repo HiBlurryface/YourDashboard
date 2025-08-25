@@ -1,10 +1,12 @@
 @import "_reset.scss";
 @import "_fonts.scss";
+@import "_styles.scss";
 
 body,
 html {
     background: #f4f7fe;
     font-family: "DMSans";
+    overflow-x: hidden;
 }
 .body {
     &__wrapper {
@@ -13,4 +15,14 @@ html {
 }
 .main {
     flex: 1 0 auto;
+    padding: 45px 30px;
+    &__title {
+        font-size: 34px;
+        line-height: 42px;
+        color: $main-theme;
+        font-weight: 700;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
 }
