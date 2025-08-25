@@ -1,0 +1,14 @@
+@import "./../../../assets/styles/styles";
+
+.button {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    height: 35px;
+    padding: 0px 24px;
+    background: $main-theme;
+    font-size: 14px;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 70px;
+}

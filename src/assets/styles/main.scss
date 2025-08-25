@@ -14,15 +14,23 @@ html {
     }
 }
 .main {
-    flex: 1 0 auto;
+    margin-left: 290px;
+    width: 100%;
     padding: 45px 30px;
     &__title {
         font-size: 34px;
         line-height: 42px;
         color: $main-theme;
         font-weight: 700;
+        margin-bottom: 20px;
         &::first-letter {
             text-transform: uppercase;
         }
+    }
+    @media (max-width: 1024px) {
+        margin-left: 190px;
+    }
+    @media (max-width: 768px) {
+        margin-left: 60px;
     }
 }
