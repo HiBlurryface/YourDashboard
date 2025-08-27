@@ -1,7 +1,7 @@
 import React from "react";
 
 import Button from "./../components/UI/Button/Button.js"
-import projects from './../store/Projects.js';
+import projects from './../store/ProjectsStore.js';
 
 import styles from './../assets/styles/Projects.module.scss'
 

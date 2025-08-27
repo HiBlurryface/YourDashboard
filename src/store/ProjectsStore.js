@@ -7,7 +7,7 @@ import reactIcon from './../assets/images/react.jpg';
 import htmlIcon from './../assets/images/html.png';
 import laravelIcon from './../assets/images/laravel.png';
 
-const projects = [
+const projectsStore = [
     {
         preview: nowayout,
         title: 'NoWayOut',
@@ -38,4 +38,4 @@ const projects = [
     },
 ]
 
-export default projects
+export default projectsStore

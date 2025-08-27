@@ -1,6 +1,7 @@
 @import "./../../assets/styles/styles";
 
 .wrapper {
+    z-index: 9999;
     position: fixed;
     flex: 1 0 auto;
     @extend %main-transition;
