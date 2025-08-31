@@ -15,9 +15,9 @@ function Projects() {
                 </div>
                 <div className={styles.project__info}>
                     <div className={styles.project__group}>
-                        <h4 className={styles.project__title}>
+                        <h3 className={styles.project__title}>
                             {item.title}
-                        </h4>
+                        </h3>
                         <p className={styles.project__text}>
                             {item.text}
                         </p>

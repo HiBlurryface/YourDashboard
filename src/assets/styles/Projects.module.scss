@@ -29,10 +29,7 @@
         max-width: 70%;
     }
     &__title {
-        color: $main-theme;
-        font-size: 18px;
-        line-height: 30px;
-        font-weight: 700;
+        @extend %h3-title;
     }
     &__text {
         font-size: 14px;

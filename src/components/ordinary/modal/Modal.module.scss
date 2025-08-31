@@ -1,0 +1,41 @@
+@import "./../../../assets/styles/styles";
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    &__active {
+        display: block;
+    }
+}
+.block {
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    padding: 20px;
+    min-width: 460px;
+}
+.title {
+    @extend %h3-title;
+    text-align: center;
+}
+.group {
+    margin: 20px auto;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: unset;
+    font-size: 21px;
+    font-weight: 700;
+    color: $main-theme;
+}

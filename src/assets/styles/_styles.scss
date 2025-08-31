@@ -1,5 +1,12 @@
 $main-theme: #2b3674;
 
+%h3-title {
+    color: #2b3674;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
 %main-transition {
     transition: 0.3s ease-in-out;
 }

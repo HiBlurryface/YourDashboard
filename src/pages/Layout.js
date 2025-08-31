@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
 import { useLocation } from 'react-router-dom';
-import Sidebar from '../components/ordinary/Sidebar';
+import Sidebar from '../components/ordinary/sidebar/Sidebar.js';
 
 function Layout() {
     const location = useLocation().pathname.substr(1);

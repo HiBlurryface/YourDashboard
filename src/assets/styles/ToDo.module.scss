@@ -9,7 +9,7 @@
     // grid-auto-rows: 10px; /* базовый размер «рядка» */
     // gap: 16px;
 }
-.blog {
+.todo {
     display: flex;
     flex-direction: column;
     max-width: 450px;
@@ -31,10 +31,7 @@
         height: 24px;
     }
     &__title {
-        color: $main-theme;
-        font-size: 18px;
-        line-height: 30px;
-        font-weight: 700;
+        @extend %h3-title;
     }
     &__descr {
         font-size: 14px;
@@ -90,7 +87,7 @@
         &:checked {
             background: #32cd32;
             border-color: #32cd32;
-            & ~ .blog__label {
+            & ~ .todo__label {
                 color: #32cd32;
             }
         }
@@ -103,5 +100,35 @@
         font-weight: 700;
         padding-right: 8px;
         @extend %main-transition;
+    }
+}
+
+.add {
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    z-index: 100;
+    background: $main-theme;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+
+    &:after {
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 36px;
+        height: 2px;
+    }
+    &:before {
+        top: 50%;
+        transform: translate(0%, -50%);
+        height: 36px;
+        width: 2px;
+    }
+    &:after,
+    &:before {
+        content: " ";
+        position: absolute;
+        background: #fff;
     }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router";
-import navigation from "../../store/Navigation";
+import navigation from "../../../store/Navigation";
 
 import styles from './Sidebar.module.scss';
 

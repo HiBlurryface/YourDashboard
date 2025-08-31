@@ -1,11 +1,11 @@
 import React from 'react'
-
+import classNames from 'classnames';
 import styles from './Button.module.scss';
 
-function Button(item) {
-    return <a href={item.href} className={styles.button}>
-        {item.text}
-    </a>
+function Button({ onClick, type, text, className }) {
+    return <button onClick={onClick} type={type} className={classNames(styles.button, className)}>
+        {text}
+    </button>
 }
 
 export default Button
