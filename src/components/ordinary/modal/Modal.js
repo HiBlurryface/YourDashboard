@@ -67,22 +67,8 @@ function Modal({ supabase, getTodo, modal, setModal }) {
             }
         });
 
-        return !hasError; // true = все ок
+        return !hasError;
     };
-
-    // const validation = (name, val) => {
-    //     if (!val || val.length === 0) {
-    //         setError(prevState => ({
-    //             ...prevState,
-    //             [name]: true,
-    //         }))
-    //     } else {
-    //         setError(prevState => ({
-    //             ...prevState,
-    //             [name]: false,
-    //         }))
-    //     }
-    // }
 
     const onChange = (event) => {
         const name = event.target.name;
