@@ -21,7 +21,8 @@
     transform: translate(-50%, -50%);
     border-radius: 30px;
     padding: 20px;
-    min-width: 460px;
+    width: calc(100% - 40px);
+    max-width: 460px;
 }
 .title {
     @extend %h3-title;

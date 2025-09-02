@@ -9,4 +9,8 @@
     font-weight: 500;
     max-width: 320px;
     width: 100%;
+    border: 1px solid #f4f7fe;
+    &__error {
+        border: 1px solid red;
+    }
 }
