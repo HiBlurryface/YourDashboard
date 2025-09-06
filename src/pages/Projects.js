@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { createClient } from '@supabase/supabase-js';
 
 import Button from "./../components/UI/Button/Button.js"
-import projects from './../store/ProjectsStore.js';
 
 import styles from './../assets/styles/Projects.module.scss'
 
+const supabaseUrl = 'https://orfaaqgzqovfsxrvodqu.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmFhcWd6cW92ZnN4cnZvZHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjYyNDMsImV4cCI6MjA3MjI0MjI0M30.2y3K6pmxQymNHfqeYxYSm3hGq660GI9q5dHqmSW1eKM';
+const supabase = createClient(supabaseUrl, supabaseKey)
+
 function Projects() {
-    console.log(projects)
+    const [projects, setProjects] = useState([])
+
+    useEffect(() => {
+        getProjects()
+    }, [])
+
+    async function getProjects() {
+        let { data, error } = await supabase
+            .from('projects')
+            .select('*')
+        if (error) console.error(error)
+        else setProjects(data)
+    }
+
     return <div className={styles.wrapper}>
         {projects.map((item) => {
-            return <div className={styles.project}>
+            return <div className={styles.project} key={item.id}>
                 <div className={styles.project__preview}>
                     <img src={item.preview} alt="" className={styles.project__bg} />
                 </div>

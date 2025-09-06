@@ -43,7 +43,6 @@ function ToDo() {
 
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}+00:00`;
     })
-    console.log(date)
 
     // get ToDos from server
 
