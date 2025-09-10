@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from '@supabase/supabase-js';
-
-import Button from "./../components/UI/Button/Button.js"
+import classNames from "classnames";
 
 import styles from './../assets/styles/Projects.module.scss'
+import { NavLink } from "react-router";
 
 const supabaseUrl = 'https://orfaaqgzqovfsxrvodqu.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmFhcWd6cW92ZnN4cnZvZHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjYyNDMsImV4cCI6MjA3MjI0MjI0M30.2y3K6pmxQymNHfqeYxYSm3hGq660GI9q5dHqmSW1eKM';
@@ -26,7 +26,7 @@ function Projects() {
 
     return <div className={styles.wrapper}>
         {projects.map((item) => {
-            return <div className={styles.project} key={item.id}>
+            return <div className={classNames(styles.projects, "block")} key={item.id}>
                 <div className={styles.project__preview}>
                     <img src={item.preview} alt="" className={styles.project__bg} />
                 </div>
@@ -45,7 +45,7 @@ function Projects() {
                 </div>
                 <div className={styles.project__footer}>
                     <a href={item.link} className={styles.project__link}>Link to page</a>
-                    <Button text="More" href="" />
+                    <NavLink className={styles.project__more} to={`/projects/${item.title}`}>More</NavLink>
                 </div>
             </div>
         })}

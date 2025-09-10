@@ -8,6 +8,7 @@ import Modal from "../components/ordinary/modal/Modal";
 import Input from "../components/UI/Input/Input";
 import Button from "../components/UI/Button/Button";
 import ButtonDelete from "../components/UI/ButtonDelete/ButtonDelete";
+import classNames from "classnames";
 
 const supabaseUrl = 'https://orfaaqgzqovfsxrvodqu.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmFhcWd6cW92ZnN4cnZvZHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjYyNDMsImV4cCI6MjA3MjI0MjI0M30.2y3K6pmxQymNHfqeYxYSm3hGq660GI9q5dHqmSW1eKM';
@@ -188,7 +189,7 @@ function ToDo() {
 
     return <div className={styles.wrapper}>
         {todo.map((item) => {
-            return <div className={styles.todo} key={item.id}>
+            return <div className={classNames(styles.todo, "block")} key={item.id}>
                 <button className={styles.todo__edit} onClick={() => changeTask(item)}>
                     <img src={edit} alt="" className={styles.todo__icon} />
                 </button>

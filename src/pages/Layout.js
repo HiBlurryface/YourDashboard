@@ -1,16 +1,25 @@
 import React from "react";
-import { Outlet } from "react-router";
-import { useLocation } from 'react-router-dom';
+import { Outlet, useMatches } from "react-router";
 import Sidebar from '../components/ordinary/sidebar/Sidebar.js';
 
 function Layout() {
-    const location = useLocation().pathname.substr(1);
+    const matches = useMatches()
+    const breadcrumbs = matches
+        .filter((m) => m.handle && m.handle.breadcrumb)
+        .map((m) => {
+            const label =
+                typeof m.handle.breadcrumb === "function"
+                    ? m.handle.breadcrumb(m)
+                    : m.handle.breadcrumb;
+
+            return label;
+        });
 
     return <div className="body__wrapper">
         <Sidebar />
         <div className="main">
             <h2 className="main__title">
-                {location}
+                {breadcrumbs}
             </h2>
             <Outlet />
         </div>
