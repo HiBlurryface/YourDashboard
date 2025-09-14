@@ -26,9 +26,7 @@
         @extend %h3-title;
     }
     &__text {
-        font-size: 14px;
-        line-height: 20px;
-        color: #a3aed0;
+        @extend %par-styles;
     }
     &__icon {
         width: 36px;
@@ -50,10 +48,7 @@
         justify-content: space-between;
     }
     &__link {
-        color: #4318ff;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 24px;
+        @extend %link-styles;
     }
     &__more {
         display: inline-block;

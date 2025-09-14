@@ -2,6 +2,10 @@
 @import "_fonts.scss";
 @import "_styles.scss";
 
+#root {
+    height: 100%;
+}
+
 body,
 html {
     background: #f4f7fe;
@@ -10,10 +14,12 @@ html {
 }
 .body {
     &__wrapper {
+        height: 100%;
         display: flex;
     }
 }
 .main {
+    position: relative;
     margin-left: 290px;
     width: 100%;
     padding: 45px 30px;

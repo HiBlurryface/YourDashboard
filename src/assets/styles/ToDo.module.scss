@@ -26,9 +26,7 @@
         @extend %h3-title;
     }
     &__descr {
-        font-size: 14px;
-        line-height: 20px;
-        color: #a3aed0;
+        @extend %par-styles;
     }
     &__date {
         color: $main-theme;

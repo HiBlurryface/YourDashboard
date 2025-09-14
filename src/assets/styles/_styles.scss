@@ -11,6 +11,19 @@ $main-theme: #2b3674;
     }
 }
 
+%par-styles {
+    font-size: 14px;
+    line-height: 20px;
+    color: #a3aed0;
+}
+
+%link-styles {
+    color: #4318ff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
 %main-transition {
     transition: 0.3s ease-in-out;
 }

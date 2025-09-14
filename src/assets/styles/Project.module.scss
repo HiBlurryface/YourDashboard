@@ -1,0 +1,57 @@
+@import "./../../assets/styles/styles";
+
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+    @media (max-width: 1440px) {
+        flex-direction: column-reverse;
+    }
+}
+.bg {
+    min-width: 620px;
+    width: 100%;
+    @media (max-width: 1440px) {
+        min-width: 100%;
+    }
+}
+.img {
+    border-radius: 20px;
+    width: 100%;
+}
+.block {
+    max-width: 620px !important;
+    flex: 1 1 auto;
+
+    @media (min-width: 1441px) {
+        top: 20px;
+        position: sticky !important;
+        margin-left: 20px;
+    }
+    @media (max-width: 1440px) {
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+}
+.title {
+    @extend %h3-title;
+}
+.info {
+    @extend %par-styles;
+    padding-bottom: 20px;
+}
+.list {
+    padding-bottom: 20px;
+    padding-left: 17px;
+    &__item {
+        padding-left: 10px;
+        list-style-type: "--" !important;
+        list-style: initial;
+        font-size: 14px;
+        line-height: 20px;
+        color: $main-theme;
+        font-weight: 500;
+    }
+}
+.link {
+    @extend %link-styles;
+}

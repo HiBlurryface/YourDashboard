@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from '@supabase/supabase-js';
+import Loading from "../components/ordinary/loading/Loading";
 import classNames from "classnames";
 
 import styles from './../assets/styles/Projects.module.scss'
@@ -24,32 +25,34 @@ function Projects() {
         else setProjects(data)
     }
 
-    return <div className={styles.wrapper}>
-        {projects.map((item) => {
-            return <div className={classNames(styles.projects, "block")} key={item.id}>
-                <div className={styles.project__preview}>
-                    <img src={item.preview} alt="" className={styles.project__bg} />
-                </div>
-                <div className={styles.project__info}>
-                    <div className={styles.project__group}>
-                        <h3 className={styles.project__title}>
-                            {item.title}
-                        </h3>
-                        <p className={styles.project__text}>
-                            {item.text}
-                        </p>
+    return projects.length === 0
+        ? <Loading />
+        : <div className={styles.wrapper}>
+            {projects.map((item) => {
+                return <div className={classNames(styles.projects, "block")} key={item.id}>
+                    <div className={styles.project__preview}>
+                        <img src={item.preview} alt="" className={styles.project__bg} />
                     </div>
-                    <div className={styles.project__icon}>
-                        <img src={item.icon} alt={item.icon} className={styles.project__img} />
+                    <div className={styles.project__info}>
+                        <div className={styles.project__group}>
+                            <h3 className={styles.project__title}>
+                                {item.title}
+                            </h3>
+                            <p className={styles.project__text}>
+                                {item.text}
+                            </p>
+                        </div>
+                        <div className={styles.project__icon}>
+                            <img src={item.icon} alt={item.icon} className={styles.project__img} />
+                        </div>
+                    </div>
+                    <div className={styles.project__footer}>
+                        <a href={item.link} className={styles.project__link}>Link to page</a>
+                        <NavLink className={styles.project__more} to={`/projects/${item.title}`}>More</NavLink>
                     </div>
                 </div>
-                <div className={styles.project__footer}>
-                    <a href={item.link} className={styles.project__link}>Link to page</a>
-                    <NavLink className={styles.project__more} to={`/projects/${item.title}`}>More</NavLink>
-                </div>
-            </div>
-        })}
-    </div>
+            })}
+        </div>
 }
 
 export default Projects

@@ -9,6 +9,7 @@ import Input from "../components/UI/Input/Input";
 import Button from "../components/UI/Button/Button";
 import ButtonDelete from "../components/UI/ButtonDelete/ButtonDelete";
 import classNames from "classnames";
+import Loading from "../components/ordinary/loading/Loading";
 
 const supabaseUrl = 'https://orfaaqgzqovfsxrvodqu.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9yZmFhcWd6cW92ZnN4cnZvZHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NjYyNDMsImV4cCI6MjA3MjI0MjI0M30.2y3K6pmxQymNHfqeYxYSm3hGq660GI9q5dHqmSW1eKM';
@@ -187,88 +188,90 @@ function ToDo() {
     }
 
 
-    return <div className={styles.wrapper}>
-        {todo.map((item) => {
-            return <div className={classNames(styles.todo, "block")} key={item.id}>
-                <button className={styles.todo__edit} onClick={() => changeTask(item)}>
-                    <img src={edit} alt="" className={styles.todo__icon} />
-                </button>
-                <h3 className={styles.todo__title}>
-                    {item.title}
-                </h3>
-                <p className={styles.todo__descr}>
-                    {item.descr}
-                </p>
-                <div className={styles.todo__footer}>
-                    <p className={styles.todo__date}>
-                        {item.created_at.slice(0, 10)}
+    return todo.length === 0
+        ? <Loading />
+        : <div className={styles.wrapper}>
+            {todo.map((item) => {
+                return <div className={classNames(styles.todo, "block")} key={item.id}>
+                    <button className={styles.todo__edit} onClick={() => changeTask(item)}>
+                        <img src={edit} alt="" className={styles.todo__icon} />
+                    </button>
+                    <h3 className={styles.todo__title}>
+                        {item.title}
+                    </h3>
+                    <p className={styles.todo__descr}>
+                        {item.descr}
                     </p>
-                    <div className={styles.todo__mark}>
-                        <input
-                            onChange={(e) => toggleDone(item.id, e.target.checked)}
-                            id={item.id}
-                            checked={item.isDone}
-                            className={styles.todo__checkbox}
-                            type="checkbox" />
-                        <label
-                            htmlFor={item.id}
-                            className={styles.todo__label}>Mark as done</label>
+                    <div className={styles.todo__footer}>
+                        <p className={styles.todo__date}>
+                            {item.created_at.slice(0, 10)}
+                        </p>
+                        <div className={styles.todo__mark}>
+                            <input
+                                onChange={(e) => toggleDone(item.id, e.target.checked)}
+                                id={item.id}
+                                checked={item.isDone}
+                                className={styles.todo__checkbox}
+                                type="checkbox" />
+                            <label
+                                htmlFor={item.id}
+                                className={styles.todo__label}>Mark as done</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-        })}
+            })}
 
-        <button type="button" className={styles.add} onClick={() => createTask()}>
+            <button type="button" className={styles.add} onClick={() => createTask()}>
 
-        </button>
+            </button>
 
-        <Modal modal={modal.add} setModal={() => closeModal('add')}>
-            <Input
-                name="title"
-                value={task.title}
-                placeholder="Task title"
-                onChange={onChange}
-                type="text"
-                val={error.title}
-                className="marginCenter marginBottom"
-            />
-            <Input
-                name="descr"
-                value={task.descr}
-                placeholder="Your task"
-                onChange={onChange}
-                type="text"
-                val={error.descr}
-                className="marginCenter marginBottom" />
-            <div className="modal__footer">
-                <Button type="button" text="Confirm" onClick={() => addTask()} />
-            </div>
-        </Modal>
+            <Modal modal={modal.add} setModal={() => closeModal('add')}>
+                <Input
+                    name="title"
+                    value={task.title}
+                    placeholder="Task title"
+                    onChange={onChange}
+                    type="text"
+                    val={error.title}
+                    className="marginCenter marginBottom"
+                />
+                <Input
+                    name="descr"
+                    value={task.descr}
+                    placeholder="Your task"
+                    onChange={onChange}
+                    type="text"
+                    val={error.descr}
+                    className="marginCenter marginBottom" />
+                <div className="modal__footer">
+                    <Button type="button" text="Confirm" onClick={() => addTask()} />
+                </div>
+            </Modal>
 
-        <Modal modal={modal.edit} setModal={() => closeModal('edit')}>
-            <Input
-                name="title"
-                value={task.title}
-                placeholder="Task title"
-                onChange={onChange}
-                type="text"
-                val={error.title}
-                className="marginCenter marginBottom"
-            />
-            <Input
-                name="descr"
-                value={task.descr}
-                placeholder="Your task"
-                onChange={onChange}
-                type="text"
-                val={error.descr}
-                className="marginCenter marginBottom" />
-            <div className="modal__footer">
-                <Button type="button" text="Confirm" onClick={() => editTask(task)} />
-                <ButtonDelete type="button" text="Delete task" onClick={() => deleteTask(task)} />
-            </div>
-        </Modal>
-    </div>
-}
+            <Modal modal={modal.edit} setModal={() => closeModal('edit')}>
+                <Input
+                    name="title"
+                    value={task.title}
+                    placeholder="Task title"
+                    onChange={onChange}
+                    type="text"
+                    val={error.title}
+                    className="marginCenter marginBottom"
+                />
+                <Input
+                    name="descr"
+                    value={task.descr}
+                    placeholder="Your task"
+                    onChange={onChange}
+                    type="text"
+                    val={error.descr}
+                    className="marginCenter marginBottom" />
+                <div className="modal__footer">
+                    <Button type="button" text="Confirm" onClick={() => editTask(task)} />
+                    <ButtonDelete type="button" text="Delete task" onClick={() => deleteTask(task)} />
+                </div>
+            </Modal>
+        </div>
+};
 
 export default ToDo
