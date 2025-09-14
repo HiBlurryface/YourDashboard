@@ -19,16 +19,17 @@
     width: 100%;
 }
 .block {
-    max-width: 620px !important;
+    @extend %main-block;
+    max-width: 620px;
     flex: 1 1 auto;
 
     @media (min-width: 1441px) {
         top: 20px;
-        position: sticky !important;
+        position: sticky;
         margin-left: 20px;
     }
     @media (max-width: 1440px) {
-        max-width: 100% !important;
+        max-width: 100%;
         margin-bottom: 20px;
     }
 }

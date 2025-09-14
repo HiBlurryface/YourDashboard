@@ -6,10 +6,14 @@
     flex-wrap: wrap;
 }
 .project {
+    @extend %main-block;
+    &__preview {
+        height: 250px;
+    }
     &__bg {
         border-radius: 18px;
         width: 100%;
-        height: 250px;
+        height: 100%;
         object-fit: cover;
         object-position: center;
     }

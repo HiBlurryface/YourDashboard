@@ -192,7 +192,7 @@ function ToDo() {
         ? <Loading />
         : <div className={styles.wrapper}>
             {todo.map((item) => {
-                return <div className={classNames(styles.todo, "block")} key={item.id}>
+                return <div className={styles.todo} key={item.id}>
                     <button className={styles.todo__edit} onClick={() => changeTask(item)}>
                         <img src={edit} alt="" className={styles.todo__icon} />
                     </button>

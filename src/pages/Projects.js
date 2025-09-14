@@ -29,7 +29,7 @@ function Projects() {
         ? <Loading />
         : <div className={styles.wrapper}>
             {projects.map((item) => {
-                return <div className={classNames(styles.projects, "block")} key={item.id}>
+                return <div className={styles.project} key={item.id}>
                     <div className={styles.project__preview}>
                         <img src={item.preview} alt="" className={styles.project__bg} />
                     </div>

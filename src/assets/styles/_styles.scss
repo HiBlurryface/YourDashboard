@@ -27,3 +27,21 @@ $main-theme: #2b3674;
 %main-transition {
     transition: 0.3s ease-in-out;
 }
+
+%main-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    width: fit-content;
+    background: #fff;
+    padding: 21px;
+    border-radius: 20px;
+    position: relative;
+
+    @media (max-width: 1024px) {
+        padding: 12px 16px;
+    }
+    @media (max-width: 425px) {
+        width: 100%;
+    }
+}

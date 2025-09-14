@@ -34,7 +34,7 @@ function Project() {
             <div className={styles.bg}>
                 <img loading="lazy" src={project.preview} alt={project.title} className={styles.img} />
             </div>
-            <div className={classNames(styles.block, 'block')}>
+            <div className={styles.block}>
                 <h3 className={styles.title}>{project.title}</h3>
                 <p className={styles.info}>{project.descr}</p>
                 <h3 className={styles.title}>Technologies</h3>

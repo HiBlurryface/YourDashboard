@@ -6,6 +6,7 @@
     gap: 20px;
 }
 .todo {
+    @extend %main-block;
     &__edit {
         width: 20px;
         height: 20px;

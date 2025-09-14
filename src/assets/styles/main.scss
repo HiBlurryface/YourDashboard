@@ -3,7 +3,7 @@
 @import "_styles.scss";
 
 #root {
-    height: 100%;
+    min-height: 100%;
 }
 
 body,
@@ -14,7 +14,7 @@ html {
 }
 .body {
     &__wrapper {
-        height: 100%;
+        min-height: 100vh;
         display: flex;
     }
 }
@@ -62,29 +62,6 @@ html {
     }
 }
 
-.marginCenter {
-    margin: 0px auto;
-}
-.marginBottom {
-    margin-bottom: 20px;
-}
-.block {
-    display: flex;
-    flex-direction: column;
-    max-width: 450px;
-    width: fit-content;
-    background: #fff;
-    padding: 21px;
-    border-radius: 20px;
-    position: relative;
-
-    @media (max-width: 1024px) {
-        padding: 12px 16px;
-    }
-    @media (max-width: 425px) {
-        width: 100%;
-    }
-}
 .modal {
     display: none;
     position: fixed;
